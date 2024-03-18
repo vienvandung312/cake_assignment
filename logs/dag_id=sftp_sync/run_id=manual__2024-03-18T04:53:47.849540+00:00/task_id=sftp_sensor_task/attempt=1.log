@@ -1,0 +1,35 @@
+[2024-03-18T04:53:52.519+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task manual__2024-03-18T04:53:47.849540+00:00 [queued]>
+[2024-03-18T04:53:52.543+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task manual__2024-03-18T04:53:47.849540+00:00 [queued]>
+[2024-03-18T04:53:52.544+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-18T04:53:52.579+0000] {taskinstance.py:2217} INFO - Executing <Task(SFTPSensor): sftp_sensor_task> on 2024-03-18 04:53:47.849540+00:00
+[2024-03-18T04:53:52.636+0000] {standard_task_runner.py:60} INFO - Started process 725 to run task
+[2024-03-18T04:53:52.681+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sftp_sync', 'sftp_sensor_task', 'manual__2024-03-18T04:53:47.849540+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/sftp_sync_between_source_and_target.py', '--cfg-path', '/tmp/tmp9zgntk93']
+[2024-03-18T04:53:52.701+0000] {standard_task_runner.py:88} INFO - Job 46: Subtask sftp_sensor_task
+[2024-03-18T04:53:52.944+0000] {task_command.py:423} INFO - Running <TaskInstance: sftp_sync.sftp_sensor_task manual__2024-03-18T04:53:47.849540+00:00 [running]> on host 78c95bc5c908
+[2024-03-18T04:53:53.083+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sftp_sync' AIRFLOW_CTX_TASK_ID='sftp_sensor_task' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T04:53:47.849540+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-18T04:53:47.849540+00:00'
+[2024-03-18T04:53:53.097+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:53:53.099+0000] {sftp.py:80} INFO - Poking for /home/***/filesystem/*, with pattern 
+[2024-03-18T04:53:53.101+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:53:53.204+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:53:53.577+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:53:53.736+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:53:53.738+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:54:23.890+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:54:23.911+0000] {sftp.py:80} INFO - Poking for /home/***/filesystem/*, with pattern 
+[2024-03-18T04:54:23.914+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:54:24.031+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:54:24.376+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:54:24.551+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:54:24.561+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:54:56.468+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:54:56.545+0000] {sftp.py:80} INFO - Poking for /home/***/filesystem/*, with pattern 
+[2024-03-18T04:54:56.555+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:54:57.270+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:54:58.020+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:54:58.342+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:54:58.356+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:55:27.729+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2024-03-18T04:55:27.739+0000] {process_utils.py:131} INFO - Sending 15 to group 725. PIDs of all processes in the group: [725]
+[2024-03-18T04:55:27.741+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 725
+[2024-03-18T04:55:27.750+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-03-18T04:55:27.970+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=725, status='terminated', exitcode=0, started='04:53:52') (725) terminated with exit code 0

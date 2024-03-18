@@ -1,0 +1,1 @@
+[2024-03-18T05:13:02.109+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: sftp_sync.remove_tmp_files manual__2024-03-18T05:12:55.524319+00:00 [queued]> finished (success) although the task says it's queued. (Info: None) Was the task killed externally?

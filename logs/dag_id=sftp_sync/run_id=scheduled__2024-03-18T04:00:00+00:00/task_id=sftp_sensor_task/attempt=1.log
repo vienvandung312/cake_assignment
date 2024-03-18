@@ -1,0 +1,96 @@
+[2024-03-18T04:34:28.016+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [queued]>
+[2024-03-18T04:34:28.036+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [queued]>
+[2024-03-18T04:34:28.037+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-18T04:34:28.110+0000] {taskinstance.py:2217} INFO - Executing <Task(SFTPSensor): sftp_sensor_task> on 2024-03-18 04:00:00+00:00
+[2024-03-18T04:34:28.168+0000] {standard_task_runner.py:60} INFO - Started process 392 to run task
+[2024-03-18T04:34:28.210+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sftp_sync', 'sftp_sensor_task', 'scheduled__2024-03-18T04:00:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/sftp_sync_between_source_and_target.py', '--cfg-path', '/tmp/tmpcd5mbjq_']
+[2024-03-18T04:34:28.224+0000] {standard_task_runner.py:88} INFO - Job 38: Subtask sftp_sensor_task
+[2024-03-18T04:34:28.704+0000] {task_command.py:423} INFO - Running <TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [running]> on host 78c95bc5c908
+[2024-03-18T04:34:29.358+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sftp_sync' AIRFLOW_CTX_TASK_ID='sftp_sensor_task' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-18T04:00:00+00:00'
+[2024-03-18T04:34:29.455+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:34:29.470+0000] {sftp.py:80} INFO - Poking for /path/to/monitor, with pattern 
+[2024-03-18T04:34:29.475+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:34:29.754+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:34:30.585+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:34:30.730+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:34:30.739+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:34:55.141+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2024-03-18T04:34:55.174+0000] {process_utils.py:131} INFO - Sending 15 to group 392. PIDs of all processes in the group: [392]
+[2024-03-18T04:34:55.178+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 392
+[2024-03-18T04:34:55.183+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-03-18T04:34:55.288+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/sftp/sensors/sftp.py", line 154, in execute
+    return super().execute(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 293, in execute
+    time.sleep(self._get_next_poke_interval(started_at, run_duration, try_number))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2485, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2024-03-18T04:34:55.314+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=sftp_sync, task_id=sftp_sensor_task, execution_date=20240318T040000, start_date=20240318T043428, end_date=20240318T043455
+[2024-03-18T04:34:55.414+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 38 for task sftp_sensor_task ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(sftp_sync, sftp_sensor_task, scheduled__2024-03-18T04:00:00+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'sftp_sensor_task', 'dag_id': 'sftp_sync', 'run_id': 'scheduled__2024-03-18T04:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2024, 3, 18, 4, 34, 28, 22835, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2024, 3, 18, 4, 34, 55, 300124, tzinfo=Timezone('UTC')), 'duration': 27}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 392)
+[2024-03-18T04:34:55.492+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=392, status='terminated', exitcode=1, started='04:34:27') (392) terminated with exit code 1
+[2024-03-18T04:35:23.967+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [queued]>
+[2024-03-18T04:35:23.985+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [queued]>
+[2024-03-18T04:35:23.985+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-18T04:35:24.000+0000] {taskinstance.py:2217} INFO - Executing <Task(SFTPSensor): sftp_sensor_task> on 2024-03-18 04:00:00+00:00
+[2024-03-18T04:35:24.031+0000] {standard_task_runner.py:60} INFO - Started process 422 to run task
+[2024-03-18T04:35:24.047+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sftp_sync', 'sftp_sensor_task', 'scheduled__2024-03-18T04:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/sftp_sync_between_source_and_target.py', '--cfg-path', '/tmp/tmpglr3wigp']
+[2024-03-18T04:35:24.052+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask sftp_sensor_task
+[2024-03-18T04:35:24.234+0000] {task_command.py:423} INFO - Running <TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-18T04:00:00+00:00 [running]> on host 78c95bc5c908
+[2024-03-18T04:35:24.405+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sftp_sync' AIRFLOW_CTX_TASK_ID='sftp_sensor_task' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-18T04:00:00+00:00'
+[2024-03-18T04:35:24.423+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:35:24.424+0000] {sftp.py:80} INFO - Poking for /path/to/monitor, with pattern 
+[2024-03-18T04:35:24.427+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:35:24.465+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:35:24.675+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:35:24.785+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:35:24.788+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:35:55.080+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:35:55.133+0000] {sftp.py:80} INFO - Poking for /path/to/monitor, with pattern 
+[2024-03-18T04:35:55.145+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:35:55.237+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:35:55.867+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:35:55.980+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:35:55.984+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:36:26.215+0000] {base.py:83} INFO - Using connection ID 'source_sftp' for task execution.
+[2024-03-18T04:36:26.224+0000] {sftp.py:80} INFO - Poking for /path/to/monitor, with pattern 
+[2024-03-18T04:36:26.231+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T04:36:26.281+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T04:36:26.625+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T04:36:26.712+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T04:36:26.720+0000] {sftp.py:169} INFO - [chan 0] sftp session closed.
+[2024-03-18T04:36:37.244+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2024-03-18T04:36:37.315+0000] {process_utils.py:131} INFO - Sending 15 to group 422. PIDs of all processes in the group: [422]
+[2024-03-18T04:36:37.318+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 422
+[2024-03-18T04:36:37.325+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-03-18T04:36:37.465+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/sftp/sensors/sftp.py", line 154, in execute
+    return super().execute(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 293, in execute
+    time.sleep(self._get_next_poke_interval(started_at, run_duration, try_number))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2485, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2024-03-18T04:36:37.490+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=sftp_sync, task_id=sftp_sensor_task, execution_date=20240318T040000, start_date=20240318T043523, end_date=20240318T043637
+[2024-03-18T04:36:37.618+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 40 for task sftp_sensor_task ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
+DETAIL:  Key (dag_id, task_id, run_id, map_index)=(sftp_sync, sftp_sensor_task, scheduled__2024-03-18T04:00:00+00:00, -1) is not present in table "task_instance".
+
+[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
+[parameters: {'task_id': 'sftp_sensor_task', 'dag_id': 'sftp_sync', 'run_id': 'scheduled__2024-03-18T04:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2024, 3, 18, 4, 35, 23, 972055, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2024, 3, 18, 4, 36, 37, 483760, tzinfo=Timezone('UTC')), 'duration': 73}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj); 422)
+[2024-03-18T04:36:37.717+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=422, status='terminated', exitcode=1, started='04:35:23') (422) terminated with exit code 1
