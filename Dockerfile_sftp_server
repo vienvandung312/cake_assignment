@@ -1,0 +1,15 @@
+FROM ubuntu:latest 
+
+RUN mkdir -p /var/run/sshd
+
+RUN apt update && \
+    apt install -y openjdk-8-jdk && \
+    apt install -y openssh-server 
+
+RUN useradd -rm -d /home/airflow -s /bin/bash airflow && \
+    echo airflow:airflow | chpasswd
+
+
+RUN mkdir home/airflow/filesystem
+
+RUN chown -R airflow:airflow home/airflow

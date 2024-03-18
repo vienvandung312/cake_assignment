@@ -1,0 +1,28 @@
+[2024-03-17T20:16:40.848+0000] {processor.py:161} INFO - Started process (PID=127) to work on /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:16:40.851+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sftp_sync_between_source_and_target.py for tasks to queue
+[2024-03-17T20:16:40.856+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:16:40.853+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:16:40.985+0000] {processor.py:840} INFO - DAG(s) 'sftp_sync_between_source_and_target' retrieved from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:16:41.407+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:16:41.406+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-03-17T20:16:41.450+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:16:41.449+0000] {dag.py:3834} INFO - Setting next_dagrun for sftp_sync_between_source_and_target to None, run_after=None
+[2024-03-17T20:16:41.492+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sftp_sync_between_source_and_target.py took 0.667 seconds
+[2024-03-17T20:17:12.355+0000] {processor.py:161} INFO - Started process (PID=134) to work on /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:12.360+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sftp_sync_between_source_and_target.py for tasks to queue
+[2024-03-17T20:17:12.362+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:12.361+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:12.458+0000] {processor.py:840} INFO - DAG(s) 'sftp_sync_between_source_and_target' retrieved from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:12.564+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:12.563+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-03-17T20:17:12.611+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:12.611+0000] {dag.py:3834} INFO - Setting next_dagrun for sftp_sync_between_source_and_target to None, run_after=None
+[2024-03-17T20:17:12.658+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sftp_sync_between_source_and_target.py took 0.319 seconds
+[2024-03-17T20:17:42.869+0000] {processor.py:161} INFO - Started process (PID=141) to work on /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:42.873+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sftp_sync_between_source_and_target.py for tasks to queue
+[2024-03-17T20:17:42.875+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:42.874+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:42.949+0000] {processor.py:840} INFO - DAG(s) 'sftp_sync_between_source_and_target' retrieved from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:17:43.065+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:43.064+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-03-17T20:17:43.111+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:17:43.110+0000] {dag.py:3834} INFO - Setting next_dagrun for sftp_sync_between_source_and_target to None, run_after=None
+[2024-03-17T20:17:43.196+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sftp_sync_between_source_and_target.py took 0.347 seconds
+[2024-03-17T20:18:13.615+0000] {processor.py:161} INFO - Started process (PID=148) to work on /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:18:13.617+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/sftp_sync_between_source_and_target.py for tasks to queue
+[2024-03-17T20:18:13.622+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:18:13.619+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:18:13.681+0000] {processor.py:840} INFO - DAG(s) 'sftp_sync_between_source_and_target' retrieved from /opt/airflow/dags/sftp_sync_between_source_and_target.py
+[2024-03-17T20:18:13.787+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:18:13.786+0000] {dag.py:3047} INFO - Sync 1 DAGs
+[2024-03-17T20:18:13.839+0000] {logging_mixin.py:188} INFO - [2024-03-17T20:18:13.838+0000] {dag.py:3834} INFO - Setting next_dagrun for sftp_sync_between_source_and_target to None, run_after=None
+[2024-03-17T20:18:13.881+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/sftp_sync_between_source_and_target.py took 0.282 seconds

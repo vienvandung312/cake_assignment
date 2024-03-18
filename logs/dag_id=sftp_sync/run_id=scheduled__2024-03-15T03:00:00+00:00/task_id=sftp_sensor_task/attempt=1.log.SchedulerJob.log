@@ -1,0 +1,2 @@
+[2024-03-18T04:30:30.905+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-15T03:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
+[2024-03-18T04:31:48.317+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: sftp_sync.sftp_sensor_task scheduled__2024-03-15T03:00:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

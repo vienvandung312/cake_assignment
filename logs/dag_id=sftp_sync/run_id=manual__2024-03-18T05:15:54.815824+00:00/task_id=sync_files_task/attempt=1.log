@@ -1,0 +1,39 @@
+[2024-03-18T05:16:01.322+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sftp_sync.sync_files_task manual__2024-03-18T05:15:54.815824+00:00 [queued]>
+[2024-03-18T05:16:01.347+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sftp_sync.sync_files_task manual__2024-03-18T05:15:54.815824+00:00 [queued]>
+[2024-03-18T05:16:01.347+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2024-03-18T05:16:01.375+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): sync_files_task> on 2024-03-18 05:15:54.815824+00:00
+[2024-03-18T05:16:01.389+0000] {standard_task_runner.py:60} INFO - Started process 1137 to run task
+[2024-03-18T05:16:01.412+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'sftp_sync', 'sync_files_task', 'manual__2024-03-18T05:15:54.815824+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/sftp_sync_between_source_and_target.py', '--cfg-path', '/tmp/tmpw1aj9513']
+[2024-03-18T05:16:01.414+0000] {standard_task_runner.py:88} INFO - Job 58: Subtask sync_files_task
+[2024-03-18T05:16:01.610+0000] {task_command.py:423} INFO - Running <TaskInstance: sftp_sync.sync_files_task manual__2024-03-18T05:15:54.815824+00:00 [running]> on host 78c95bc5c908
+[2024-03-18T05:16:01.813+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sftp_sync' AIRFLOW_CTX_TASK_ID='sync_files_task' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T05:15:54.815824+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-18T05:15:54.815824+00:00'
+[2024-03-18T05:16:01.818+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T05:16:01.850+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T05:16:02.059+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T05:16:02.147+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T05:16:02.150+0000] {ssh.py:301} WARNING - No Host Key Verification. This won't protect against Man-In-The-Middle attacks
+[2024-03-18T05:16:02.177+0000] {transport.py:1909} INFO - Connected (version 2.0, client OpenSSH_8.9p1)
+[2024-03-18T05:16:02.401+0000] {transport.py:1909} INFO - Authentication (password) successful!
+[2024-03-18T05:16:02.532+0000] {sftp.py:169} INFO - [chan 0] Opened sftp connection (server version 3)
+[2024-03-18T05:16:02.554+0000] {logging_mixin.py:188} INFO - Transforming files...
+[2024-03-18T05:16:02.568+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/sftp_sync_between_source_and_target.py", line 27, in sync_files
+    dest_hook.store_file(f'/tmp/{file}', f'/home/airflow/filesystem/')
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/sftp/hooks/sftp.py", line 256, in store_file
+    conn.put(local_full_path, remote_full_path, confirm=confirm)
+  File "/home/airflow/.local/lib/python3.8/site-packages/paramiko/sftp_client.py", line 757, in put
+    file_size = os.stat(localpath).st_size
+FileNotFoundError: [Errno 2] No such file or directory: '/home/airflow/filesystem/'
+[2024-03-18T05:16:02.672+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=sftp_sync, task_id=sync_files_task, execution_date=20240318T051554, start_date=20240318T051601, end_date=20240318T051602
+[2024-03-18T05:16:02.728+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 58 for task sync_files_task ([Errno 2] No such file or directory: '/home/airflow/filesystem/'; 1137)
+[2024-03-18T05:16:02.800+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-03-18T05:16:02.890+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
